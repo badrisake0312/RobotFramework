@@ -1,0 +1,26 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${browser}  chrome
+${url}  https://testautomationpractice.blogspot.com/
+*** Test Cases ***
+Testing Radio Buttons and Check Boxes
+    open browser   ${url}    ${browser}
+    maximize browser window
+    set selenium speed      2seconds
+    #Selecting Radio Buttons
+    title should be     Automation Testing Practice
+    sleep   10
+    select radio button     gender  female
+    sleep   10
+    #Selecting Check Boxs
+    select checkbox     monday
+    select checkbox     wednesday
+
+    unselect checkbox      monday
+    select checkbox     wednesday
+    close browser
+
+*** Keywords ***
+
