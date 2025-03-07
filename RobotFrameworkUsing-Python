@@ -1,0 +1,110 @@
+Set Up
+--------------------------------
+Install Python
+Insatll Pycharm IDE
+Install Selenium
+Install Robotframework
+Install RobotframeworkLibrary
+--------------------------------
+Plugins
+--------------------------------
+IntelliBot@SeleniumLibrary Patched
+-----------------------------------
+***<TabSpace>Settings<TabSpace>***
+
+***  Variables ***
+
+*** TestCases ***
+
+*** Keyworks ***
+
+-----------------------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+
+*** Test Cases ***
+LoginTest
+
+    open browser   https://www.saucedemo.com/    chrome
+    click link  xpath://a[@class='ico-login']
+    input text  xpath://input[@id='user-name']   badrisake0312@gmail.com
+    Input Text    xpath://input[@id='password']    test@example.com
+    close browser
+
+*** Keywords ***
+
+--------------------------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+${browser}  chrome
+${url}  https://www.saucedemo.com/
+
+*** Test Cases ***
+LoginTest
+
+    open browser     ${url}  ${browser}
+    click link  xpath://a[@class='ico-login']
+    input text  xpath://input[@id='user-name']   badrisake0312@gmail.com
+    Input Text    xpath://input[@id='password']    test@example.com
+    close browser
+
+*** Keywords ***
+
+-----------------------------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+${browser}  chrome
+${url}  https://www.saucedemo.com/
+
+
+
+*** Test Cases ***
+LoginTest
+
+    open browser   ${url}    ${browser}
+    LoginToApplication
+    close browser
+
+*** Keywords ***
+LoginToApplication
+    input text  xpath://input[@id='user-name']   badrisake0312@gmail.com
+    Input Text    xpath://input[@id='password']    test@example.com
+----------------------------------------------------------------------------------------------
+Text Box / Input Box
+-Visibility status
+-Enabled status
+-Provide value
+-Clearing value
+-Verify Title Of the page
+
+*** Variables ***
+${browser}  chrome
+${url}  https://www.saucedemo.com/
+*** Test Cases ***
+TestingInputBox
+    open browser   ${url}    ${browser}
+    maximize browser window
+    title should be     Swag Labs
+  # ${"email_txt"}  set variable    xpath://input[@id='user-name']
+    ${"email_txt"}  set variable    id:user-name
+    element should be visible   ${"email_txt"}
+    element should be enabled   ${"email_txt"}
+    input text  ${"email_txt"}    badrisake0312@gmail.com
+    sleep   5
+    clear element text  ${"email_txt"}
+    sleep   5
+    close browser
+
+*** Keywords ***
+--------------------------------------------------------------------------------------
+
+
