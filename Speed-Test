@@ -79,3 +79,25 @@ TimeOutTest                                                           | FAIL |
 1 test, 0 passed, 1 failed
 ==============================================================================
 -----------------------------------------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+*** Variables ***
+${browser}  chrome
+${url}  https://demowebshop.tricentis.com/register
+*** Test Cases ***
+RegTest
+    open browser   ${url}    ${browser}
+    maximize browser window
+    ${speed}=   Get Selenium Implicit Wait
+    log to console  ${speed}
+    Set Selenium Implicit Wait    10
+    select radio button     Gender  M
+    input text  name:FirstName1  Badri
+    input text  name:LastName  Sake
+    input text  name:Email  badrisake0312@gmail.com
+    input text  name:Password  badri
+    input text  name:ConfirmPassword  badri
+    close browser
+
+*** Keywords ***
+----------------------------------------------------------------------------------------------------------
