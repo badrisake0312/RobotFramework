@@ -1,0 +1,43 @@
+Selenium Speed
+Selenium Timeout
+Implicit wait
+Sleep
+-------------------------
+*** Settings ***
+Library  SeleniumLibrary
+*** Variables ***
+${browser}  chrome
+${url}  https://demowebshop.tricentis.com/register
+*** Test Cases ***
+RegTest
+    ${speed}=   get selenium speed
+    log to console  ${speed}
+    open browser   ${url}    ${browser}
+    maximize browser window
+    set selenium speed   3 seconds
+    select radio button     Gender  M
+    input text  name:FirstName  Badri
+    input text  name:LastName  Sake
+    input text  name:Email  badrisake0312@gmail.com
+    input text  name:Password  badri
+    input text  name:ConfirmPassword  badri
+    ${speed}=   get selenium speed
+    log to console  ${speed}
+    close browser
+
+*** Keywords ***
+---------------------------------------------------------------------------------------
+==============================================================================
+SpeedTest
+==============================================================================
+RegTest                                                               .0 seconds
+.
+DevTools listening on ws://127.0.0.1:55394/devtools/browser/77b1d322-a105-4a1b-86c6-df86b7afc9c7
+....Created TensorFlow Lite XNNPACK delegate for CPU.
+Attempting to use a delegate that only supports static-sized tensors with a graph that has dynamic-sized tensors (tensor#-1 is a dynamic-sized tensor).
+RegTest                                                               ....3 seconds
+RegTest                                                               | PASS |
+------------------------------------------------------------------------------
+SpeedTest                                                             | PASS |
+1 test, 1 passed, 0 failed
+-----------------------------------------------------------------------------------------
