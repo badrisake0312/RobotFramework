@@ -41,3 +41,41 @@ RegTest                                                               | PASS |
 SpeedTest                                                             | PASS |
 1 test, 1 passed, 0 failed
 -----------------------------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+*** Variables ***
+${browser}  chrome
+${url}  https://demowebshop.tricentis.com/register
+*** Test Cases ***
+RegTest
+
+    open browser   ${url}    ${browser}
+    maximize browser window
+    ${speed}=   get selenium timeout
+    log to console  ${speed}
+    set selenium time out   10 sec
+    Wait Until Page Contains     badri   timeout=5s
+    select radio button     Gender  M
+    input text  name:FirstName  Badri
+    input text  name:LastName  Sake
+    input text  name:Email  badrisake0312@gmail.com
+    input text  name:Password  badri
+    input text  name:ConfirmPassword  badri
+    ${speed}=   get selenium timeout
+    log to console  ${speed}
+    close browser
+
+*** Keywords ***
+==============================================================================
+TimeOutTest
+==============================================================================
+RegTest
+DevTools listening on ws://127.0.0.1:59050/devtools/browser/6b214ce8-a3f3-48cf-8172-33a14398a418
+...5 seconds
+RegTest                                                               | FAIL |
+Text 'badri' did not appear in 5 seconds.
+------------------------------------------------------------------------------
+TimeOutTest                                                           | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+-----------------------------------------------------------------------------------------------------
