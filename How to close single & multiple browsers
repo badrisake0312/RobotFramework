@@ -1,0 +1,21 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+${browser}  chrome
+${url}  https://demowebshop.tricentis.com/register
+
+${browser1}  chrome
+${url1}  https://testautomationpractice.blogspot.com/
+
+*** Test Cases ***
+MyTestCase
+
+    open browser   ${url}    ${browser}
+    maximize browser window
+    open browser   ${url1}    ${browser1}
+    maximize browser window
+    Close All Browsers
+
+*** Keywords ***
