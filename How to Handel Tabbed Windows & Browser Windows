@@ -1,0 +1,20 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${browser}  chrome
+${url}  https://testautomationpractice.blogspot.com/
+*** Test Cases ***
+Tabbed
+    open browser   ${url}    ${browser}
+    maximize browser window
+    Click Element       (//a[@target='_blank'])[3]
+    select window   title:sakinalium
+    Click Element    xpath://input[@id='sign-in']
+    sleep   5
+    Close Browser
+
+
+
+*** Keywords ***
+-----------------------------------------------------------------
