@@ -8,13 +8,14 @@ ${url}  https://testautomationpractice.blogspot.com/
 Tabbed
     open browser   ${url}    ${browser}
     maximize browser window
-    Click Element       (//a[@target='_blank'])[3]
-    select window   title:sakinalium
-    Click Element    xpath://input[@id='sign-in']
+    Click Element   xpath://a[@target='_blank'][2]
+    switch window   Blogger.com - Create a unique and beautiful blog easily.
+    Click Element   xpath://a[@class='cta ga-hero-cta']
     sleep   5
     Close Browser
 
 
 
 *** Keywords ***
+
 -----------------------------------------------------------------
