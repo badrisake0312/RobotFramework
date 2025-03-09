@@ -1,0 +1,27 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${url}       https://www.google.com
+${browser}   chrome
+${url1}      https://www.bing.com
+${browser1}  chrome
+*** Test Cases ***
+NavigationTest
+
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    ${loc}=    Get Location
+    Log To Console    ${loc}
+    Sleep    3
+    go to   ${url1}
+    ${loc}=    Get Location
+    Log To Console    ${loc}
+    Sleep    3
+    Go Back
+    ${loc}=    Get Location
+    Log To Console    ${loc}
+    Sleep    3
+    Close All Browsers
+
+*** Keywords ***
