@@ -1,0 +1,26 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${url}       https://www.saucedemo.com/
+${browser}   chrome
+
+*** Test Cases ***
+LoginTest
+
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Input Text    xpath://input[@id='user-name']    standard_user
+    Sleep    5
+    Input Text    xpath://input[@id="password"]    secret_sauce
+    Sleep    5
+    #Capture Element Screenshot    xpath://div[@class='login_credentials']  C:/Users/badri/PycharmProjects/Automation/Logo.png
+    #Sleep    5
+    #Capture Page Screenshot     C:/Users/badri/PycharmProjects/Automation/LoginTC.png
+    Capture Element Screenshot    xpath://div[@class='login_credentials']  Logo.png
+    Sleep    5
+    Capture Page Screenshot     LoginTC.png
+    Sleep    5
+    Close All Browsers
+
+*** Keywords ***
