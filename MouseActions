@@ -1,0 +1,37 @@
+-Right Click-->Open Context Menu
+-Double Click-->Double Click Element
+-Drag & Drop-->Drag And Drop
+-------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${url}       https://swisnl.github.io/jQuery-contextMenu/demo.html
+${browser}   chrome
+${url1}      https://testautomationpractice.blogspot.com/
+${browser1}   chrome
+${url2}      http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html
+${browser2}   chrome
+
+*** Test Cases ***
+MouseActions
+    #Right click/open open context menu
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Open Context Menu    xpath://span[contains(.,'right click me')]
+    Sleep    5
+    #Double click action
+    Go To    ${url1}
+    Maximize Browser Window
+    Sleep    5
+    Double Click Element    xpath://button[contains(.,'Copy Text')]
+    Sleep    5
+    #Drag and Drop
+    Go To    ${url2}
+    Maximize Browser Window
+    Sleep    5
+    Drag And Drop    id=box6    id=box106
+    Sleep    5
+    Close All Browsers
+
+*** Keywords ***
