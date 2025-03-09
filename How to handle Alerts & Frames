@@ -1,0 +1,38 @@
+*** Settings ***
+Library  SeleniumLibrary
+*** Variables ***
+${browser}  chrome
+${url}  https://testautomationpractice.blogspot.com/
+*** Test Cases ***
+HandlingAlerts
+
+    open browser   ${url}    ${browser}
+    maximize browser window
+    Click element   xpath://button[@id='confirmBtn']
+    Sleep   10
+    #handle alert    accept
+    #Click element   xpath://button[@id='confirmBtn']
+    #handle alert    dismiss
+    #sleep   10
+    #handle alert    Leave
+    #Alert Should Be Present    Press a button!
+    Alert Should Not Be Present    Press a button!
+*** Keywords ***
+----------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+*** Variables ***
+${browser}  chrome
+${url}  https://www.hyrtutorials.com/p/frames-practice.html
+*** Test Cases ***
+HandlingFrames
+    open browser   ${url}    ${browser}
+    maximize browser window
+    set selenium speed   5 seconds
+    Select Frame    frm1    #id name xpath
+    Click Element   id:course
+    unselect frame
+    Select Frame    frm2    #id name xpath
+    input text  name:fName  badri
+    unselect frame
+*** Keywords ***
