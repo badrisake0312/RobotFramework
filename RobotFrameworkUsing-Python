@@ -6,6 +6,12 @@ Install Selenium
 Install Robotframework
 Install RobotframeworkLibrary
 --------------------------------
+pip install selenium
+pip install robotframework
+pip show robotframework
+pip list
+pip install robotframework-seleniumlibrary
+--------------------------------
 Plugins
 --------------------------------
 IntelliBot@SeleniumLibrary Patched
