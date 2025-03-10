@@ -1,0 +1,26 @@
+-Count Number of Links on Web Page
+-Extract All the Links from page
+
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+${url}         https://testautomationpractice.blogspot.com/
+${browser}     chrome
+
+*** Test Cases ***
+GetAllLinksTest
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Sleep    5
+    ${AllLinksCount}=   Get Element Count    xpath://a
+    Log To Console    ${AllLinksCount}
+    Sleep    2
+    ${LinkItems}    Create List
+
+    FOR    ${i}    IN RANGE       1  ${AllLinksCount}
+    ${linktext}=  Get Text    xpath:(//a)[${i}]
+    Log To Console  ${linktext}
+
+    END
