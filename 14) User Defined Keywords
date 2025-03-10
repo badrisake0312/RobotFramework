@@ -2,3 +2,37 @@
 -User Defined Keywords with Arguments
 -User Defined Keywords with Arguments & Return value
 --------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+Resource    ../Resources1/resources.robot
+
+*** Variables ***
+${url}         https://demo.guru99.com/test/newtours/
+${browser}     chrome
+
+*** Test Cases ***
+TC1
+    ${PageTitle}=   LaunchBrowser    ${url}    ${browser}
+    Log To Console    ${PageTitle}
+    Wait Until Element Is Visible    name=userName    10s
+    Input Text    name=userName    mercury
+    Input Text    name=password    mercury
+    Click Button    xpath=//input[@type='submit']
+    Wait Until Page Contains    SIGN-OFF    10s
+    Sleep    2
+    Close All Browsers
+
+---------------------------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+
+
+*** Keywords ***
+LaunchBrowser
+    [Arguments]    ${appurl}    ${appbrowser}
+    Open Browser    ${appurl}    ${appbrowser}
+    Maximize Browser Window
+    Wait Until Page Contains Element    name=userName    10s
+    ${title}=   Get Title
+    [Return]    ${title}
