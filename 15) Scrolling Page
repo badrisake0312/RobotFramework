@@ -1,0 +1,26 @@
+Scrolling Page using JavaScriptExecutor
+-Scrolling page till it reach a pixel number
+-Scrolling page till find element on page
+-Scroll page till the bottom
+-----------------------------------------------------
+*** Settings ***
+Library  SeleniumLibrary
+
+
+*** Variables ***
+${url}         https://testautomationpractice.blogspot.com/
+${browser}     chrome
+
+*** Test Cases ***
+ScrollingPage
+    Open Browser    ${url}    ${browser}
+    Maximize Browser Window
+    Sleep    5
+    #Execute Javascript  window.scrollTo(0,2500)
+    #Scroll Element Into View    xpath://h2[contains(.,'Dynamic Web Table')]
+    Execute Javascript  window.scrollTo(0,document.body.scrollHeight)   #End of the page
+    Sleep    5
+    Execute Javascript  window.scrollTo(0,-document.body.scrollHeight)  #Top of the page
+    Sleep    2
+    Close All Browsers
+
