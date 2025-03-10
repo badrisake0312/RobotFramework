@@ -36,3 +36,5 @@ LaunchBrowser
     Wait Until Page Contains Element    name=userName    10s
     ${title}=   Get Title
     [Return]    ${title}
+---------------------------------------------------------------------------
+
