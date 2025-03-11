@@ -1,0 +1,5 @@
+Setup & TearDown Robot Framework
+-Test Setup - will run before every Test Case
+-Test Teardown - will run after every Test Case
+-Suite Setup - will run before Test Suite
+-Suite Teardown - will run after Test Suite
