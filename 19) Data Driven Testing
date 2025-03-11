@@ -1,0 +1,6 @@
+Data Driven Testing:-Data-driven testing (DDT) is a software testing method that uses external data sources to run the same test logic multiple times. 
+-Specify Test Data in the Script
+-Read Test Data from Excel file (.xlsx)
+-Read Test Data from CSV file (.csv)
+----------------------------------------------
+Robot framework Datadriver Library
